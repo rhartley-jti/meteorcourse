@@ -2,6 +2,15 @@ Images = new Mongo.Collection("images");
 
 if (Meteor.isClient) {
   Template.images.helpers({images: Images.find({}, {sort:{createdOn: -1, rating: -1}})});
+  Template.body.helpers({username: function() {
+    var user = Meteor.user();
+    if (user) {
+        return user.emails[0].address;
+    }
+    else {
+        return "anonymous internet user";
+    }
+  }});
   Template.images.events({
     'click .js-image': function(event) {
       $(event.target).css("width", "50px");
