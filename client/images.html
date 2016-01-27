@@ -13,7 +13,9 @@
             {{#each images}}
             <div id="{{_id}}" class="col-xs-12 col-md-3">
                 <div class="thumbnail">
-                    <img class="thumbnail-img js-image" src="{{img_src}}" alt="{{img_alt}}"/>
+                    <a href="/image/{{_id}}">
+                        <img class="thumbnail-img js-image" src="{{img_src}}" alt="{{img_alt}}"/>
+                    </a>
                     <div class="caption">
                         <h3>Rating {{rating}}</h3>
                         <p>{{img_alt}}</p>
